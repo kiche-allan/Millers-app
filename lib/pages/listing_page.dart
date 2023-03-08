@@ -26,6 +26,9 @@ class _ListingPageState extends State<ListingPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('List Your Cereal'),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.blue[900],
+        iconTheme: IconThemeData(color: Colors.blue[900]),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -58,7 +61,7 @@ class _ListingPageState extends State<ListingPage> {
                     border: OutlineInputBorder(),
                   ),
                   validator: (value) {
-                    if (value.isEmpty) {
+                    if (value !.isEmpty) {
                       return 'Please enter the quality of your cereal';
                     }
                     return null;
@@ -73,7 +76,7 @@ class _ListingPageState extends State<ListingPage> {
                     border: OutlineInputBorder(),
                   ),
                   validator: (value) {
-                    if (value.isEmpty) {
+                    if (value !.isEmpty) {
                       return 'Please enter the price of your cereal';
                     }
                     return null;
@@ -88,7 +91,7 @@ class _ListingPageState extends State<ListingPage> {
                     border: OutlineInputBorder(),
                   ),
                   validator: (value) {
-                    if (value.isEmpty) {
+                    if (value !.isEmpty) {
                       return 'Please enter the location of your cereal';
                     }
                     return null;
@@ -97,7 +100,7 @@ class _ListingPageState extends State<ListingPage> {
                 SizedBox(height: 32.0),
                 ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState.validate()) {
+                    if (_formKey.currentState!.validate()) {
                       // TODO: Implement logic to submit the cereal listing
                       print('Cereal listing submitted');
                     }
