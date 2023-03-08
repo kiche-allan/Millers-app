@@ -6,6 +6,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:ecommerce/pages/listing_page.dart';
 import 'package:ecommerce/pages/search_page.dart';
 import 'package:ecommerce/pages/filter_page.dart';
+import 'package:ecommerce/pages/messages_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -34,6 +35,16 @@ class HomePage extends StatelessWidget {
             },
             icon: const Icon(Ionicons.search_outline),
           ),
+                        IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MessagesPage()),
+                );
+              },
+              icon: const Icon(Ionicons.chatbubble_ellipses_outline),
+            ),
+
           IconButton(
             onPressed: () {
               Navigator.push(
