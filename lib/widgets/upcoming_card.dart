@@ -32,7 +32,7 @@ class UpcomingCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Dr. Ruben Dorwart",
+                "Millers and Farmers App",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -41,7 +41,7 @@ class UpcomingCard extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               Text(
-                "Dental Specialist",
+                "We bring you together for sales",
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       color: Colors.white70,
                     ),

@@ -48,14 +48,14 @@ class HomePage extends StatelessWidget {
           const UpcomingCard(),
           const SizedBox(height: 20),
           Text(
-            "Health Needs",
+            "Available Cereals",
             style: Theme.of(context).textTheme.headline6,
           ),
           const SizedBox(height: 15),
           const HealthNeeds(),
           const SizedBox(height: 25),
           Text(
-            "Nearby Doctors",
+            "Top Farmers",
             style: Theme.of(context).textTheme.headline6,
           ),
           const SizedBox(height: 15),

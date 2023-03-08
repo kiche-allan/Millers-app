@@ -34,7 +34,7 @@ class NearbyDoctors extends StatelessWidget {
                         fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
-                  const Text("General practitioner"),
+                  const Text("General Farmers"),
                   const SizedBox(height: 16),
                   Row(
                     children: [
