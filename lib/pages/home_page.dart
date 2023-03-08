@@ -144,9 +144,10 @@ class HomePage extends StatelessWidget {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Ionicons.calendar_outline),
-            activeIcon: Icon(Ionicons.calendar),
-            label: "Calendar",
+            //icon to add a material 
+            icon: Icon(Ionicons.add_circle_outline),
+            activeIcon: Icon(Ionicons.add_circle),
+            label: "Add",
           ),
           BottomNavigationBarItem(
             icon: Icon(Ionicons.chatbubble_ellipses_outline),
@@ -160,7 +161,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
         onTap: (index) {
-          if (index == 2) {
+          if (index == 1) {
             _goToListingPage(
               context,
             );
