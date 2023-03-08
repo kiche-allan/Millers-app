@@ -4,17 +4,11 @@ import 'package:ecommerce/widgets/upcoming_card.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:ecommerce/pages/listing_page.dart';
-
+import 'package:ecommerce/pages/search_page.dart';
+import 'package:ecommerce/pages/filter_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-
-  void _goToListingPage(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ListingPage()),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,21 +17,31 @@ class HomePage extends StatelessWidget {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Hello, Miller"),
+            const Text("Hello, Farmer"),
             Text(
-              "Welcome to the platform?",
+              "Welcome to the platform",
               style: Theme.of(context).textTheme.caption,
             ),
           ],
         ),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: const Icon(Ionicons.notifications_outline),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SearchPage()),
+              );
+            },
+            icon: const Icon(Ionicons.search_outline),
           ),
           IconButton(
-            onPressed: () {},
-            icon: const Icon(Ionicons.search_outline),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FilterPage()),
+              );
+            },
+            icon: const Icon(Ionicons.options_outline),
           ),
         ],
       ),
@@ -48,14 +52,14 @@ class HomePage extends StatelessWidget {
           const UpcomingCard(),
           const SizedBox(height: 20),
           Text(
-            "Available Cereals",
+            "Health Needs",
             style: Theme.of(context).textTheme.headline6,
           ),
           const SizedBox(height: 15),
           const HealthNeeds(),
           const SizedBox(height: 25),
           Text(
-            "Top Farmers",
+            "Nearby Doctors",
             style: Theme.of(context).textTheme.headline6,
           ),
           const SizedBox(height: 15),
@@ -75,24 +79,19 @@ class HomePage extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Icon(Ionicons.calendar_outline),
             activeIcon: Icon(Ionicons.calendar),
-            label: "Home",
+            label: "Calendar",
           ),
           BottomNavigationBarItem(
             icon: Icon(Ionicons.chatbubble_ellipses_outline),
-            label: "Home",
+            label: "Chat",
             activeIcon: Icon(Ionicons.chatbubble_ellipses),
           ),
           BottomNavigationBarItem(
             icon: Icon(Ionicons.person_outline),
             activeIcon: Icon(Ionicons.person),
-            label: "Home",
+            label: "Profile",
           ),
         ],
-        onTap: (index) {
-          if (index == 2) {
-            _goToListingPage(context);
-          }
-        },
       ),
     );
   }
