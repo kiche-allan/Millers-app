@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -12,10 +13,70 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Search"),
+        title: const Text("Search"),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Ionicons.filter_outline),
+          ),
+        ],
       ),
-      body: Center(
-        child: Text("Search Page"),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: TextFormField(
+              decoration: InputDecoration(
+                hintText: "Search for cereals...",
+                prefixIcon: const Icon(Ionicons.search_outline),
+                filled: true,
+                fillColor: Colors.grey[200],
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Recent Searches",
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text("Clear all"),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: ListTile(
+                    title: const Text("Maize"),
+                    subtitle: const Text("Nairobi, KENYA"),
+                    trailing: const Text("30 bags"),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
