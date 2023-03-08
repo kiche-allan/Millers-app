@@ -3,9 +3,18 @@ import 'package:ecommerce/widgets/nearby_doctors.dart';
 import 'package:ecommerce/widgets/upcoming_card.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:ecommerce/pages/listing_page.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  void _goToListingPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ListingPage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +88,11 @@ class HomePage extends StatelessWidget {
             label: "Home",
           ),
         ],
+        onTap: (index) {
+          if (index == 2) {
+            _goToListingPage(context);
+          }
+        },
       ),
     );
   }

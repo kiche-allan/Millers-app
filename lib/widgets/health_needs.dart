@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:ecommerce/pages/listing_page.dart';
 
 class HealthNeeds extends StatelessWidget {
   const HealthNeeds({Key? key}) : super(key: key);
@@ -48,4 +49,11 @@ class CustomIcon {
     required this.name,
     required this.icon,
   });
+}
+
+void _goToListingPage(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => ListingPage()),
+  );
 }
