@@ -7,6 +7,7 @@ import 'package:ecommerce/pages/listing_page.dart';
 import 'package:ecommerce/pages/search_page.dart';
 import 'package:ecommerce/pages/filter_page.dart';
 import 'package:ecommerce/pages/messages_page.dart';
+import 'package:ecommerce/pages/notification_page.dart';
 
 void _goToListingPage(BuildContext context) {
   Navigator.push(
@@ -165,8 +166,14 @@ class HomePage extends StatelessWidget {
             _goToListingPage(
               context,
             );
+          } else if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NotificationPage()),
+            );
           }
         },
+        
       ),
     );
   }
