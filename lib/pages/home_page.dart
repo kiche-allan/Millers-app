@@ -9,6 +9,9 @@ import 'package:ecommerce/pages/filter_page.dart';
 import 'package:ecommerce/pages/messages_page.dart';
 import 'package:ecommerce/pages/notification_page.dart';
 import 'package:ecommerce/pages/analytics_page.dart';
+import 'package:ecommerce/widgets/hero_image.dart';
+
+
 
 void _goToListingPage(BuildContext context) {
   Navigator.push(
