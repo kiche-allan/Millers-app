@@ -178,7 +178,7 @@ class HomePage extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => NotificationPage()),
             ); 
-          } else if (index == 4) {
+          } else if (index == 2) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => AnalyticsPage()),
