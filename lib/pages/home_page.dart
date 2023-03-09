@@ -8,6 +8,7 @@ import 'package:ecommerce/pages/search_page.dart';
 import 'package:ecommerce/pages/filter_page.dart';
 import 'package:ecommerce/pages/messages_page.dart';
 import 'package:ecommerce/pages/notification_page.dart';
+import 'package:ecommerce/pages/analytics_page.dart';
 
 void _goToListingPage(BuildContext context) {
   Navigator.push(
@@ -151,6 +152,12 @@ class HomePage extends StatelessWidget {
             label: "Add",
           ),
           BottomNavigationBarItem(
+            //analytics icon
+            icon: Icon(Ionicons.analytics_outline),
+            label: "Analytics",
+            activeIcon: Icon(Ionicons.analytics),
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Ionicons.chatbubble_ellipses_outline),
             label: "Chat",
             activeIcon: Icon(Ionicons.chatbubble_ellipses),
@@ -170,6 +177,11 @@ class HomePage extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => NotificationPage()),
+            ); 
+          } else if (index == 4) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AnalyticsPage()),
             );
           }
         },

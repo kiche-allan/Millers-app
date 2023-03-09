@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       useInheritedMediaQuery: true,
       builder: DevicePreview.appBuilder,
       locale: DevicePreview.locale(context),
-      title: 'health app',
+      title: 'Millers App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorSchemeSeed: const Color(0xff5a73d8),
