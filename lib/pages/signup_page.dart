@@ -44,16 +44,31 @@ class _SignupPageState extends State<SignupPage> {
         // Navigate to home page
         Navigator.pushNamed(context, '/login');
       } on FirebaseAuthException catch (e) {
-        if (e.code == 'weak-password') {
-          print('The password provided is too weak.');
-        } else if (e.code == 'email-already-in-use') {
-          print('The account already exists for that email.');
-        }
-      } catch (e) {
-        print(e);
+        String errorMessage;
+      if (e.code == 'user-not-found') {
+        errorMessage = 'No user found for that email.';
+      } else if (e.code == 'wrong-password') {
+        errorMessage = 'Wrong password provided for that user.';
+      } else {
+        errorMessage = e.message ?? 'An unknown error occurred';
       }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(errorMessage),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('An unknown error occurred'),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
+}
+       
 
   @override
   Widget build(BuildContext context) {
