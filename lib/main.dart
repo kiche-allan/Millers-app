@@ -76,7 +76,7 @@ class _MyAppState extends State<MyApp> {
           ),
           useMaterial3: true,
         ),
-        initialRoute: _user != null ? '/home' : '/welcome',
+        initialRoute: _user != null ? '/welcome' : '/welcome',
         routes: {
           '/welcome': (context) => WelcomePage(),
           '/login': (context) => LoginPage(),

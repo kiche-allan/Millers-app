@@ -43,16 +43,30 @@ class _LoginPageState extends State<LoginPage> {
         // Navigate to home page
         Navigator.pushNamed(context, '/home');
       } on FirebaseAuthException catch (e) {
-        if (e.code == 'user-not-found') {
-          print('No user found for that email.');
-        } else if (e.code == 'wrong-password') {
-          print('Wrong password provided for that user.');
-        }
-      } catch (e) {
-        print(e);
+       String errorMessage;
+      if (e.code == 'user-not-found') {
+        errorMessage = 'No user found for that email.';
+      } else if (e.code == 'wrong-password') {
+        errorMessage = 'Wrong password provided for that user.';
+      } else {
+        errorMessage = e.message ?? 'An unknown error occurred';
       }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(errorMessage),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('An unknown error occurred'),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -62,29 +76,11 @@ class _LoginPageState extends State<LoginPage> {
         centerTitle: true,
       ),
       body: Container(
-        
-          // image: DecorationImage(
-          //   image: AssetImage('assets/doctor_3.jpg'),
-          //   fit: BoxFit.cover,
-          // ),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Colors.blue,
-                Colors.blue[200]!,
-                Colors.blue[300]!,
-                Colors.blue[400]!,
-                Colors.blue[500]!,
-                Colors.blue[600]!,
-                Colors.blue[700]!,
-                Colors.blue[800]!,
-                Colors.blue[900]!,
-              ],
-            
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/allan1.jpg'),
+            fit: BoxFit.cover,
           ),
-
         ),
         padding: EdgeInsets.all(16.0),
         child: Form(

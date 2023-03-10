@@ -63,7 +63,12 @@ class _SignupPageState extends State<SignupPage> {
         centerTitle: true,
       ),
       body: Container(
-        color: Colors.white,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/allank.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
         padding: EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
