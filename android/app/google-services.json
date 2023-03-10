@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "671602254802",
+    "project_id": "millersapp-cb02e",
+    "storage_bucket": "millersapp-cb02e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:671602254802:android:5ef02d15b72840298c1e0b",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "671602254802-6a17ge5lr4a4rotbd10ppbjdajq7jpu5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3dw0d0iMDutFKwKTQcNoqZA1uixStPtA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "671602254802-6a17ge5lr4a4rotbd10ppbjdajq7jpu5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

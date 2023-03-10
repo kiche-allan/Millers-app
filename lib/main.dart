@@ -3,13 +3,18 @@ import 'package:ecommerce/pages/home_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ecommerce/pages/login_page.dart';
+import 'package:ecommerce/pages/signup_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(DevicePreview(
-    enabled: !kReleaseMode,
-    builder: (context) => const MyApp(),
-  ));
-}
+// ...
+
+await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -30,7 +35,12 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) =>  HomePage(),
+        'login': (context) => LoginPage(),
+        'signup': (context) =>  SignUpPage(),
+      }
     );
   }
 }

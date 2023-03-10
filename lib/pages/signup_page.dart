@@ -59,7 +59,7 @@ class SignUpPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text("Log In"),
+                child: Text("SignUp"),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.blue,
                   shape: RoundedRectangleBorder(
@@ -69,14 +69,14 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 16),
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                "Don't have an account? Sign up",
-                style: TextStyle(color: Colors.grey[600]),
-              ),
-            ),
+            // SizedBox(height: 16),
+            // TextButton(
+            //   onPressed: () {},
+            //   child: Text(
+            //     "Don't have an account? Sign up",
+            //     style: TextStyle(color: Colors.grey[600]),
+            //   ),
+            // ),
           ],
         ),
       ),
