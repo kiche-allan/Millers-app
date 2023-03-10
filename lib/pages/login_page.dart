@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -14,12 +15,27 @@ class _LoginPageState extends State<LoginPage> {
   late String _password;
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+  Future<User?> _signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser!.authentication;
+    final OAuthCredential credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    final UserCredential userCredential =
+        await _auth.signInWithCredential(credential);
+    return userCredential.user;
+  }
 
   void _login() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       try {
-        UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        UserCredential userCredential =
+            await _auth.signInWithEmailAndPassword(
           email: _email,
           password: _password,
         );
@@ -43,17 +59,53 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Log In'),
+        centerTitle: true,
       ),
-      body: Padding(
+      body: Container(
+        
+          // image: DecorationImage(
+          //   image: AssetImage('assets/doctor_3.jpg'),
+          //   fit: BoxFit.cover,
+          // ),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.blue,
+                Colors.blue[200]!,
+                Colors.blue[300]!,
+                Colors.blue[400]!,
+                Colors.blue[500]!,
+                Colors.blue[600]!,
+                Colors.blue[700]!,
+                Colors.blue[800]!,
+                Colors.blue[900]!,
+              ],
+            
+          ),
+
+        ),
         padding: EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   labelText: 'Email',
+                  labelStyle: TextStyle(color: Colors.white),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -65,10 +117,21 @@ class _LoginPageState extends State<LoginPage> {
                   _email = value!;
                 },
               ),
+              SizedBox(height: 20),
               TextFormField(
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Password',
+                  labelStyle: TextStyle(color: Colors.white),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -86,7 +149,11 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _login,
-                child: Text('Log In'),
+                child: Text('Login '),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue,
+                  onPrimary: Colors.white,
+                ),
               ),
             ],
           ),
@@ -95,3 +162,4 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+                 
