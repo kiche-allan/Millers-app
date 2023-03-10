@@ -8,10 +8,10 @@ class Cereals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<CustomIcon> customIcons = [
-      CustomIcon(name: "Appointment", icon: 'assets/appointment.png'),
-      CustomIcon(name: "Hospital", icon: 'assets/hospital.png'),
-      CustomIcon(name: "Covid-19", icon: 'assets/virus.png'),
-      CustomIcon(name: "More", icon: 'assets/more.png'),
+      CustomIcon(name: "Maize", icon: 'assets/maize.jpg'),
+      CustomIcon(name: "Wheat", icon: 'assets/Wheat.jpg'),
+      CustomIcon(name: "Millet", icon: 'assets/millet.jpg'),
+      CustomIcon(name: "Rice", icon: 'assets/rice.png'),
     ];
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
