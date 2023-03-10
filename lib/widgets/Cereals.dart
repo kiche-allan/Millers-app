@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce/pages/listing_page.dart';
 
-class HealthNeeds extends StatelessWidget {
-  const HealthNeeds({Key? key}) : super(key: key);
+class Cereals extends StatelessWidget {
+  const Cereals({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
