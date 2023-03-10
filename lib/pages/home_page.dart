@@ -20,53 +20,20 @@ void _goToListingPage(BuildContext context) {
   );
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      appBar: AppBar(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text("Hello, Farmer"),
-            Text(
-              "Welcome to the platform",
-              style: Theme.of(context).textTheme.caption,
-            ),
-          ],
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SearchPage()),
-              );
-            },
-            icon: const Icon(Ionicons.search_outline),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MessagesPage()),
-              );
-            },
-            icon: const Icon(Ionicons.chatbubble_ellipses_outline),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => FilterPage()),
-              );
-            },
-            icon: const Icon(Ionicons.options_outline),
-          ),
-        ],
-      ),
+    
       body: ListView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.all(14),
