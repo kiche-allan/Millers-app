@@ -1,49 +1,17 @@
-import 'package:ecommerce/widgets/health_needs.dart';
-import 'package:ecommerce/widgets/nearby_doctors.dart';
-import 'package:ecommerce/widgets/upcoming_card.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:ecommerce/pages/listing_page.dart';
-import 'package:ecommerce/appbar/appbar.dart';
-import 'package:ecommerce/pages/search_page.dart';
-import 'package:ecommerce/pages/filter_page.dart';
-import 'package:ecommerce/pages/messages_page.dart';
-import 'package:ecommerce/pages/notification_page.dart';
-import 'package:ecommerce/pages/analytics_page.dart';
-import 'package:ecommerce/widgets/hero_image.dart';
-import 'package:ecommerce/bottomnavigation/bottomnavigation.dart';
 
+import 'midbar.dart'; // import the MidBar widget
 
-
-void _goToListingPage(BuildContext context) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => ListingPage()),
-  );
+void main() {
+  runApp(Midbar());
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-
-class _HomePageState extends State<HomePage> {
+class Midbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
-    return Scaffold(
-      appBar: const MyAppBar(),
-      body: ListView(
-        physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.all(14),
-        children: [
-          
-          const UpcomingCard(),
-          const SizedBox(height: 20),
-          Text(
+    return MaterialApp(
+      Text(
             "Search",
             style: Theme.of(context).textTheme.headline6,
           ),
@@ -97,22 +65,7 @@ class _HomePageState extends State<HomePage> {
             "Health Needs",
             style: Theme.of(context).textTheme.headline6,
           ),
-          const SizedBox(height: 15),
-          const HealthNeeds(),
-          const SizedBox(height: 25),
-          Text(
-            "Nearby Doctors",
-            style: Theme.of(context).textTheme.headline6,
-          ),
-          const SizedBox(height: 15),
-          const NearbyDoctors(),
-        ],
-      ),
-    //i want to import a bottom navigation bar here from bottom_navigation_bar.dart
-    bottomNavigationBar: const MyBottomNavigationBar(),
-
-
-  
     );
+  
   }
 }
