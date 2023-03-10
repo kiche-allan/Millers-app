@@ -2,83 +2,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatefulWidget {
+  const SignupPage({Key? key}) : super(key: key);
+
   @override
   _SignupPageState createState() => _SignupPageState();
 }
 
 class _SignupPageState extends State<SignupPage> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
+  late String _email;
+  late String _password;
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  String _email = '';
-  String _password = '';
-  String _confirmPassword = '';
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Sign Up'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Email'),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
-                  }
-                  return null;
-                },
-                onSaved: (String? value) {
-                  _email = value!;
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Password'),
-                obscureText: true,
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your password';
-                  }
-                  return null;
-                },
-                onSaved: (String? value) {
-                  _password = value!;
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Confirm Password'),
-                obscureText: true,
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please confirm your password';
-                  }
-                  if (value != _password) {
-                    return 'Passwords do not match';
-                  }
-                  return null;
-                },
-                onSaved: (String? value) {
-                  _confirmPassword = value!;
-                },
-              ),
-              SizedBox(height: 16.0),
-              ElevatedButton(
-                onPressed: _signup,
-                child: Text('Sign Up'),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 
   void _signup() async {
     if (_formKey.currentState!.validate()) {
@@ -88,14 +23,103 @@ class _SignupPageState extends State<SignupPage> {
           email: _email,
           password: _password,
         );
-        print('User signed up: ${userCredential.user!.uid}');
+        print('User created: ${userCredential.user!.uid}');
         // Navigate to home page
-        Navigator.pushNamed(context, '/home');
+        Navigator.pushNamed(context, '/login');
       } on FirebaseAuthException catch (e) {
-        if (e.code == 'email-already-in-use') {
-          print('Email address is already in use.');
+        if (e.code == 'weak-password') {
+          print('The password provided is too weak.');
+        } else if (e.code == 'email-already-in-use') {
+          print('The account already exists for that email.');
         }
+      } catch (e) {
+        print(e);
       }
     }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Sign Up'),
+        centerTitle: true,
+      ),
+      body: Container(
+        color: Colors.white,
+        padding: EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextFormField(
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  labelStyle: TextStyle(color: Colors.blueGrey),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blueGrey),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blueGrey),
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blueGrey),
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _email = value!;
+                },
+              ),
+              SizedBox(height: 20),
+              TextFormField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  labelStyle: TextStyle(color: Colors.blueGrey),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blueGrey),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blueGrey),
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blueGrey),
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a password';
+                  }
+                  if (value.length < 6) {
+                    return 'Password must be at least 6 characters long';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  _password = value!;
+                },
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: _signup,
+                child: Text('Sign Up'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blueGrey,
+                  onPrimary: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
