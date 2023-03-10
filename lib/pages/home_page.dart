@@ -4,6 +4,7 @@ import 'package:ecommerce/widgets/upcoming_card.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:ecommerce/pages/listing_page.dart';
+import 'package:ecommerce/appbar/appbar.dart';
 import 'package:ecommerce/pages/search_page.dart';
 import 'package:ecommerce/pages/filter_page.dart';
 import 'package:ecommerce/pages/messages_page.dart';
@@ -33,11 +34,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-    
+      appBar: const MyAppBar(),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.all(14),
         children: [
+          
           const UpcomingCard(),
           const SizedBox(height: 20),
           Text(
