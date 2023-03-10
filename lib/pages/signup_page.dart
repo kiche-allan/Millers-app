@@ -57,15 +57,15 @@ class _SignupPageState extends State<SignupPage> {
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   labelText: 'Email',
-                  labelStyle: TextStyle(color: Colors.blueGrey),
+                  labelStyle: TextStyle(color: Colors.blue),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blueGrey),
+                    borderSide: BorderSide(color: Colors.blue),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blueGrey),
+                    borderSide: BorderSide(color: Colors.blue),
                   ),
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blueGrey),
+                    borderSide: BorderSide(color: Colors.blue),
                   ),
                 ),
                 validator: (value) {
@@ -83,15 +83,15 @@ class _SignupPageState extends State<SignupPage> {
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Password',
-                  labelStyle: TextStyle(color: Colors.blueGrey),
+                  labelStyle: TextStyle(color: Colors.blue),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blueGrey),
+                    borderSide: BorderSide(color: Colors.blue),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blueGrey),
+                    borderSide: BorderSide(color: Colors.blue),
                   ),
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blueGrey),
+                    borderSide: BorderSide(color: Colors.blue),
                   ),
                 ),
                 validator: (value) {
@@ -112,7 +112,7 @@ class _SignupPageState extends State<SignupPage> {
                 onPressed: _signup,
                 child: Text('Sign Up'),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.blueGrey,
+                  primary: Colors.blue,
                   onPrimary: Colors.white,
                 ),
               ),
