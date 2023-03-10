@@ -11,9 +11,16 @@ import 'firebase_options.dart';
 
 // ...
 
-await Firebase.initializeApp(
+import 'package:firebase_core/firebase_core.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-);
+  );
+  runApp(MyApp());
+}
+
 
 
 class MyApp extends StatelessWidget {
@@ -39,7 +46,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) =>  HomePage(),
         'login': (context) => LoginPage(),
-        'signup': (context) =>  SignUpPage(),
+        'signup': (context) => SignupPage(),
       }
     );
   }

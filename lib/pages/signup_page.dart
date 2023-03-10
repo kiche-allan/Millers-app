@@ -1,85 +1,101 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
+  @override
+  _SignupPageState createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  String _email = '';
+  String _password = '';
+  String _confirmPassword = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () => Navigator.pop(context),
-          color: Colors.blue,
-        ),
+        title: Text('Sign Up'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "SignUp",
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+        padding: const EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Email'),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
+                  }
+                  return null;
+                },
+                onSaved: (String? value) {
+                  _email = value!;
+                },
               ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "Email",
-                prefixIcon: Icon(Icons.email),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none,
-                ),
-                filled: true,
-                fillColor: Colors.grey[200],
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Password'),
+                obscureText: true,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your password';
+                  }
+                  return null;
+                },
+                onSaved: (String? value) {
+                  _password = value!;
+                },
               ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                hintText: "Password",
-                prefixIcon: Icon(Icons.lock),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none,
-                ),
-                filled: true,
-                fillColor: Colors.grey[200],
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Confirm Password'),
+                obscureText: true,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please confirm your password';
+                  }
+                  if (value != _password) {
+                    return 'Passwords do not match';
+                  }
+                  return null;
+                },
+                onSaved: (String? value) {
+                  _confirmPassword = value!;
+                },
               ),
-            ),
-            SizedBox(height: 32),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text("SignUp"),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: EdgeInsets.symmetric(vertical: 16),
-                ),
+              SizedBox(height: 16.0),
+              ElevatedButton(
+                onPressed: _signup,
+                child: Text('Sign Up'),
               ),
-            ),
-            // SizedBox(height: 16),
-            // TextButton(
-            //   onPressed: () {},
-            //   child: Text(
-            //     "Don't have an account? Sign up",
-            //     style: TextStyle(color: Colors.grey[600]),
-            //   ),
-            // ),
-          ],
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  void _signup() async {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      try {
+        UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+          email: _email,
+          password: _password,
+        );
+        print('User signed up: ${userCredential.user!.uid}');
+        // Navigate to home page
+        Navigator.pushNamed(context, '/home');
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'email-already-in-use') {
+          print('Email address is already in use.');
+        }
+      }
+    }
   }
 }

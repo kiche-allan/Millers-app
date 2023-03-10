@@ -13,9 +13,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   device_preview: ^1.1.0
   ionicons: ^0.2.1
-  google_fonts: ^3.0.1
-  firebase_auth: ^3.3.0
-  firebase_core: ^1.24.0
+  google_fonts: ^4.0.3
+  firebase_auth: ^4.2.10
+  firebase_core: ^2.7.1
 
 
 dev_dependencies:
