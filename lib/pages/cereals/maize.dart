@@ -144,10 +144,24 @@ class MaizePage extends StatelessWidget {
                               const Icon(
                                 Icons.star,
                                 color: Colors.amber,
-                                size: 16,)
-                            ]),
-                          const SizedBox(height: 5),
-                          //finish the rest of the code
+                                size: 16,
+
+                              ),
+                              const Icon(
+                                Icons.star_border,
+                                color: Colors.amber,
+                                size: 16,
+                              ),
+                              const Icon(
+                                Icons.star_border,
+                                color: Colors.amber,
+                                size: 16,
+                              ),
+                              //finish the code
+                              const SizedBox(width: 5),
+                              const Text('4.0 (10)')
+                            ],
+                          )
                         ],
                       ),
                     );
@@ -157,6 +171,7 @@ class MaizePage extends StatelessWidget {
             ),
           ],
         ),
+
       ),
     );
   }
