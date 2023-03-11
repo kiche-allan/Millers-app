@@ -48,6 +48,9 @@ class MidBar extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.grey[600],
                       fontSize: 16,
+                     
+
+                      
                     ),
                   ),
                 ],
@@ -56,14 +59,17 @@ class MidBar extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 25),
+        // Text(
+        //   "Listings",
+        //   style: Theme.of(context).textTheme.headline6,
+        // ),
         Text(
-          "Listings",
+          "Available Cereals",
           style: Theme.of(context).textTheme.headline6,
+          
         ),
-        Text(
-          "Health Needs",
-          style: Theme.of(context).textTheme.headline6,
-        ),
+         //add padding to the bottom of the text
+        const SizedBox(height: 15),
       ],
     );
   }
