@@ -2,13 +2,13 @@ import 'package:ecommerce/models/doctor_model.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
-class NearbyDoctors extends StatelessWidget {
-  const NearbyDoctors({Key? key}) : super(key: key);
+class HighestReview extends StatelessWidget {
+  const HighestReview({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final nearbyDoctorsWithLocation = nearbyDoctors
-        .map((doctor) => DoctorWithLocation(doctor, "Kesses"))
+        .map((doctor) => DoctorWithLocation(doctor, "Nakuru"))
         .toList();
 
     final chunkedDoctors = _chunkList(nearbyDoctorsWithLocation, 2);

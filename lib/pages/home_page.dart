@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: const MyAppBar(),
       
+      
       body: ListView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.all(14),
@@ -50,18 +51,24 @@ class _HomePageState extends State<HomePage> {
           const Cereals(),
           const SizedBox(height: 25),
           
+          
           Text(
             "Nearby Farmers and Products",
             style: Theme.of(context).textTheme.headline6,
           ),
           const SizedBox(height: 15),
           const NearbyDoctors(),
+          const SizedBox(height: 25),
+          //bottom navigation
+          
         ],
       ),
     //i want to import a bottom navigation bar here from bottom_navigation_bar.dart
-
-
+      
+          bottomNavigationBar: const MyBottomNavigationBar(),
   
     );
+    //bottom navigation
+    
   }
 }
