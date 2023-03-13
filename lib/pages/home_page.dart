@@ -1,4 +1,5 @@
 import 'package:ecommerce/widgets/Cereals.dart';
+import 'package:ecommerce/widgets/RiceFarmers.dart';
 import 'package:ecommerce/widgets/nearby_doctors.dart';
 import 'package:ecommerce/widgets/upcoming_card.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ import 'package:ecommerce/midbar/midbar.dart';
 import 'package:ecommerce/widgets/highest_review.dart';
 
 import '../widgets/wheatfaarmers.dart';
+import '../widgets/MilletFarmers.dart';
 
 
 
@@ -67,6 +69,7 @@ class _HomePageState extends State<HomePage> {
             "Highest Starred and Reviewed Farmers",
             style: Theme.of(context).textTheme.headline6,
           ),
+          const SizedBox(height: 25),
 
           const HighestReview(),
           const SizedBox(height: 25),
@@ -74,7 +77,24 @@ class _HomePageState extends State<HomePage> {
             "Wheat Farmers and Products",
             style: Theme.of(context).textTheme.headline6,
           ),
+          const SizedBox(height: 25),
           const WheatFarmers(),
+
+          const SizedBox(height: 25),
+          Text(
+            "Millet Farmers and Products",
+            style: Theme.of(context).textTheme.headline6,
+          ),
+          const SizedBox(height: 25),
+          const MilletFarmers(),
+          const SizedBox(height: 25),
+          Text(
+            "Millet Farmers and Products",
+            style: Theme.of(context).textTheme.headline6,
+          ),
+          const SizedBox(height: 25),
+
+          const RiceFarmers()
 
           //bottom navigation      
         ],

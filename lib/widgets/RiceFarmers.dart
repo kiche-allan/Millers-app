@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'dart:math';
 
-class NilletFarmers extends StatelessWidget {
-  const NilletFarmers({Key? key}) : super(key: key);
+class RiceFarmers extends StatelessWidget {
+  const RiceFarmers({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
