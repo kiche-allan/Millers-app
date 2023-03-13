@@ -13,6 +13,7 @@ import 'package:ecommerce/pages/analytics_page.dart';
 import 'package:ecommerce/widgets/hero_image.dart';
 import 'package:ecommerce/bottomnavigation/bottomnavigation.dart';
 import 'package:ecommerce/midbar/midbar.dart';
+import 'package:ecommerce/widgets/highest_review.dart';
 
 
 
@@ -59,6 +60,13 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 15),
           const NearbyDoctors(),
           const SizedBox(height: 25),
+
+          Text(
+            "Highest Starred and Reviewed Farmers",
+            style: Theme.of(context).textTheme.headline6,
+          ),
+
+          const HighestReview()
           //bottom navigation
           
         ],
