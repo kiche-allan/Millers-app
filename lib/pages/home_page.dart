@@ -48,7 +48,21 @@ class _HomePageState extends State<HomePage> {
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.all(14),
         children: [
-          const UpcomingCard(),
+          GestureDetector(
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Hero(
+          tag: 'upcomingCard',
+          child: ListingPage(),
+        ),
+      ),
+    );
+  },
+  child: const UpcomingCard(),
+),
+
           const SizedBox(height: 20),
           
           const SizedBox(height: 15),
@@ -89,7 +103,7 @@ class _HomePageState extends State<HomePage> {
           const MilletFarmers(),
           const SizedBox(height: 25),
           Text(
-            "Millet Farmers and Products",
+            "Rice Farmers and Products",
             style: Theme.of(context).textTheme.headline6,
           ),
           const SizedBox(height: 25),
