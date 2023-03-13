@@ -15,6 +15,8 @@ import 'package:ecommerce/bottomnavigation/bottomnavigation.dart';
 import 'package:ecommerce/midbar/midbar.dart';
 import 'package:ecommerce/widgets/highest_review.dart';
 
+import '../widgets/wheatfaarmers.dart';
+
 
 
 void _goToListingPage(BuildContext context) {
@@ -66,10 +68,17 @@ class _HomePageState extends State<HomePage> {
             style: Theme.of(context).textTheme.headline6,
           ),
 
-          const HighestReview()
-          //bottom navigation
-          
+          const HighestReview(),
+          const SizedBox(height: 25),
+          Text(
+            "Wheat Farmers and Products",
+            style: Theme.of(context).textTheme.headline6,
+          ),
+          const WheatFarmers(),
+
+          //bottom navigation      
         ],
+        
       ),
     //i want to import a bottom navigation bar here from bottom_navigation_bar.dart
       
