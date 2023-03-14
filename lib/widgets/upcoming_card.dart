@@ -115,7 +115,7 @@ class _UpcomingCardState extends State<UpcomingCard>
                           ),
                         ),
                         Text(
-                          "14:30 - 15:30 AM",
+                          "MONDAY- FRIDAY",
                           style: TextStyle(
                             color: Colors.white,
                           ),
