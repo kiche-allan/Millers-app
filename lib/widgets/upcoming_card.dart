@@ -102,7 +102,7 @@ class _UpcomingCardState extends State<UpcomingCard>
                         Padding(
                           padding: EdgeInsets.only(left: 6, right: 14),
                           child: Text(
-                            "Today",
+                            "24HRS",
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
