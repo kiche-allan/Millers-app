@@ -39,7 +39,7 @@ class _UpcomingCardState extends State<UpcomingCard>
         opacity: _fadeAnimation,
         child: Container(
           width: double.maxFinite,
-          height: 150,
+          height: 170,
           padding: const EdgeInsets.symmetric(vertical: 22, horizontal: 20),
           decoration: BoxDecoration(
             color: Theme.of(context).primaryColor.withOpacity(0.8),
@@ -70,6 +70,14 @@ class _UpcomingCardState extends State<UpcomingCard>
                   ),
                   const SizedBox(height: 5),
                   Text(
+                    
+                    "BUY AND SELL MAIZE",
+                     style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                          color: Colors.white70,
+                        ),
+                  ),
+                  Text(
+                    
                     "We bring you together for sales",
                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
                           color: Colors.white70,
