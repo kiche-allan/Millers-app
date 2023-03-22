@@ -4,16 +4,16 @@ class FilterPage extends StatefulWidget {
   const FilterPage({Key? key}) : super(key: key);
 
   @override
-  _FilterPageState createState() => _FilterPageState();
+  FilterPageState createState() => FilterPageState();
 }
 
-class _FilterPageState extends State<FilterPage> {
+class FilterPageState extends State<FilterPage> {
   bool _isHighQualitySelected = false;
   bool _isLowQualitySelected = false;
   bool _isHighPriceSelected = false;
   bool _isLowPriceSelected = false;
   double _selectedDistance = 10.0;
-  RangeValues _selectedPriceRange = RangeValues(0, 100);
+  RangeValues _selectedPriceRange = const RangeValues(0, 100);
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +106,7 @@ class _FilterPageState extends State<FilterPage> {
                       ),
                       Text(
                         "Selected distance: ${_selectedDistance.toString()} km",
-                        style: TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 16),
                       ),
                       const SizedBox(height: 16),
                       const Text(

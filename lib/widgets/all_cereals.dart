@@ -1,3 +1,4 @@
+import 'package:ecommerce/functPart/maize_home.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/pages/listing_page.dart';
 import 'package:ecommerce/pages/cereals/maize.dart';
@@ -6,11 +7,10 @@ class Cereals extends StatefulWidget {
   const Cereals({Key? key}) : super(key: key);
 
   @override
-  _CerealsState createState() => _CerealsState();
+  CerealsState createState() => CerealsState();
 }
 
-class _CerealsState extends State<Cereals>
-    with SingleTickerProviderStateMixin {
+class CerealsState extends State<Cereals> with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 600),
@@ -34,18 +34,20 @@ class _CerealsState extends State<Cereals>
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: List.generate(customIcons.length, (index) {
+
         return GestureDetector(
           onTap: () {
             if (index == 0) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MaizePage()),
+                MaterialPageRoute(builder: (context) => const HomePage2()),
               );
             } else {
               _goToListingPage(context);
             }
           },
           child: Column(
+
             children: [
               RotationTransition(
                 turns: Tween(begin: 0.0, end: 0.2).animate(_controller),
@@ -68,8 +70,10 @@ class _CerealsState extends State<Cereals>
               const SizedBox(height: 6),
               Text(customIcons[index].name)
             ],
+            
           ),
         );
+
       }),
     );
   }
@@ -87,6 +91,6 @@ class CustomIcon {
 void _goToListingPage(BuildContext context) {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => ListingPage()),
+    MaterialPageRoute(builder: (context) => const ListingPage()),
   );
 }

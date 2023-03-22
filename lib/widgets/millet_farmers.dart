@@ -1,4 +1,4 @@
-import 'package:ecommerce/models/WheatModel.dart';
+import 'package:ecommerce/models/millet_model.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'dart:math';
@@ -13,7 +13,7 @@ class MilletFarmers extends StatelessWidget {
             FarmerWithLocation(farmer, _getRandomLocation()))
         .toList();
 
-    final chunkedFarmers = _chunkList(nearbyFarmersWithLocation, 2);
+    final chunkedFarmers = _chunkList(nearbyFarmersWithLocation, 1);
 
     return Column(
       children: List.generate(chunkedFarmers.length, (index) {
@@ -48,20 +48,20 @@ class MilletFarmers extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
-                              image: AssetImage(farmer.FarmerModel.profile),
+                              image: AssetImage(farmer.farmerModel.profile),
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          "Frm. ${farmer.FarmerModel.name}",
+                          "Frm. ${farmer.farmerModel.name}",
                           style: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          "${farmer.location}",
+                          farmer.location,
                           style: const TextStyle(color: Colors.grey),
                         ),
                         const SizedBox(height: 16),
@@ -109,8 +109,8 @@ class MilletFarmers extends StatelessWidget {
 }
 
 class FarmerWithLocation {
-  final FarmerModel;
+  final farmerModel;
   final String location;
 
-  FarmerWithLocation(this.FarmerModel, this.location);
+  FarmerWithLocation(this.farmerModel, this.location);
 }

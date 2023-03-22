@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:ecommerce/pages/search_page.dart';
 
 class MidBar extends StatelessWidget {
@@ -12,14 +11,14 @@ class MidBar extends StatelessWidget {
       children: [
         Text(
           "Search",
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         const SizedBox(height: 15),
         GestureDetector(
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => SearchPage()),
+              MaterialPageRoute(builder: (context) => const SearchPage()),
             );
           },
           child: Container(
@@ -61,11 +60,11 @@ class MidBar extends StatelessWidget {
         const SizedBox(height: 25),
         // Text(
         //   "Listings",
-        //   style: Theme.of(context).textTheme.headline6,
+        //   style: Theme.of(context).textTheme.titleLarge,
         // ),
         Text(
-          "Available Cereals",
-          style: Theme.of(context).textTheme.headline6,
+          "Cereals Market Place",
+          style: Theme.of(context).textTheme.titleLarge,
           
         ),
          //add padding to the bottom of the text

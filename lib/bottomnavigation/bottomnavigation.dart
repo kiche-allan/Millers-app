@@ -1,5 +1,10 @@
+import 'package:ecommerce/functPart/maize_home.dart';
+import 'package:ecommerce/functPart/farmer_input.dart';
+import 'package:ecommerce/notifications/notification_page.dart';
+import 'package:ecommerce/pages/messages_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:ecommerce/analytics/analytics_page.dart';
 
 class MyBottomNavigationBar extends StatelessWidget {
   const MyBottomNavigationBar({Key? key}) : super(key: key);
@@ -19,7 +24,7 @@ class MyBottomNavigationBar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(Ionicons.add_circle_outline),
           activeIcon: Icon(Ionicons.add_circle),
-          label: "Add",
+          label: "Buy",
         ),
         BottomNavigationBarItem(
           icon: Icon(Ionicons.analytics_outline),
@@ -40,15 +45,20 @@ class MyBottomNavigationBar extends StatelessWidget {
       onTap: (index) {
         if (index == 1) {
           _goToListingPage(context);
-        } else if (index == 3) {
+        } else if (index == 4) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => NotificationPage()),
+            MaterialPageRoute(builder: (context) => const NotificationPage()),
           );
         } else if (index == 2) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AnalyticsPage()),
+            MaterialPageRoute(builder: (context) => const AnalyticsPage()),
+          );
+        } else if (index == 3) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const MessagesPage()),
           );
         }
       },
@@ -56,26 +66,14 @@ class MyBottomNavigationBar extends StatelessWidget {
   }
 
   void _goToListingPage(BuildContext context) {
-    // Do something when the second item is pressed
-  }
-}
-
-class NotificationPage extends StatelessWidget {
-  const NotificationPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Notifications"),
-      ),
-      body: Center(
-        child: Text("This is the Notification page"),
-      ),
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const FarmerInputForm()),
     );
   }
 }
 
+/*
 class AnalyticsPage extends StatelessWidget {
   const AnalyticsPage({Key? key}) : super(key: key);
 
@@ -83,11 +81,12 @@ class AnalyticsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Analytics"),
+        title: const Text("Analytics"),
       ),
-      body: Center(
+      body: const Center(
         child: Text("This is the Analytics page"),
       ),
     );
   }
 }
+*/

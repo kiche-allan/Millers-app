@@ -1,7 +1,8 @@
-import 'package:ecommerce/models/WheatModel.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'dart:math';
+
+import '../models/wheat_model.dart';
 
 class WheatFarmers extends StatelessWidget {
   const WheatFarmers({Key? key}) : super(key: key);
@@ -9,11 +10,10 @@ class WheatFarmers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final nearbyFarmersWithLocation = nearbyFarmers
-        .map((farmer) =>
-            FarmerWithLocation(farmer, _getRandomLocation()))
+        .map((farmer) => FarmerWithLocation(farmer, _getRandomLocation()))
         .toList();
 
-    final chunkedFarmers = _chunkList(nearbyFarmersWithLocation, 2);
+    final chunkedFarmers = _chunkList(nearbyFarmersWithLocation, 1);
 
     return Column(
       children: List.generate(chunkedFarmers.length, (index) {
@@ -48,20 +48,20 @@ class WheatFarmers extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
-                              image: AssetImage(farmer.FarmerModel.profile),
+                              image: AssetImage(farmer.farmerModel.profile),
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          "Frm. ${farmer.FarmerModel.name}",
+                          "Frm. ${farmer.farmerModel.name}",
                           style: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          "${farmer.location}",
+                          farmer.location,
                           style: const TextStyle(color: Colors.grey),
                         ),
                         const SizedBox(height: 16),
@@ -98,19 +98,29 @@ class WheatFarmers extends StatelessWidget {
   List<List<T>> _chunkList<T>(List<T> list, int chunkSize) {
     return List.generate(
         (list.length / chunkSize).ceil(),
-        (i) => list.sublist(i * chunkSize,
-            i * chunkSize + chunkSize > list.length ? list.length : i * chunkSize + chunkSize));
+        (i) => list.sublist(
+            i * chunkSize,
+            i * chunkSize + chunkSize > list.length
+                ? list.length
+                : i * chunkSize + chunkSize));
   }
 
   String _getRandomLocation() {
-    List<String> locations = [      'Nakuru',      'Nairobi',      'Mombasa',      'Kisumu',      'Eldoret',      'Kitale'    ];
+    List<String> locations = [
+      'Nakuru',
+      'Nairobi',
+      'Mombasa',
+      'Kisumu',
+      'Eldoret',
+      'Kitale'
+    ];
     return locations[Random().nextInt(locations.length)];
   }
 }
 
 class FarmerWithLocation {
-  final FarmerModel;
+  final farmerModel;
   final String location;
 
-  FarmerWithLocation(this.FarmerModel, this.location);
+  FarmerWithLocation(this.farmerModel, this.location);
 }

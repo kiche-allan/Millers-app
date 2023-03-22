@@ -1,12 +1,13 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:ecommerce/functPart/signup_ctrlr.dart';
 import 'package:ecommerce/pages/home_page.dart';
-import 'package:flutter/foundation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ecommerce/pages/login_page.dart';
 import 'package:ecommerce/pages/signup_page.dart';
 import 'package:ecommerce/pages/welcome_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -15,8 +16,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Get.put(SignUpController());
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -37,8 +39,8 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _checkCurrentUser() async {
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-    final User? user = _auth.currentUser;
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final User? user = auth.currentUser;
 
     if (user != null) {
       setState(() {
@@ -78,10 +80,10 @@ class _MyAppState extends State<MyApp> {
         ),
         initialRoute: _user != null ? '/welcome' : '/welcome',
         routes: {
-          '/welcome': (context) => WelcomePage(),
-          '/login': (context) => LoginPage(),
-          '/signup': (context) => SignupPage(),
-          '/home': (context) => HomePage(),
+          '/welcome': (context) => const WelcomePage(),
+          '/login': (context) => const LoginPage(),
+          '/signup': (context) => const SignupPage(),
+          '/home': (context) => const HomePage(),
         },
       );
     }
