@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '671602254802',
     projectId: 'millersapp-cb02e',
     storageBucket: 'millersapp-cb02e.appspot.com',
-    iosClientId: '671602254802-ieqvce55l2gf9ump59dq31nq4gguolft.apps.googleusercontent.com',
+    iosClientId:
+        '671602254802-ieqvce55l2gf9ump59dq31nq4gguolft.apps.googleusercontent.com',
     iosBundleId: 'com.example.ecommerce',
   );
 }

@@ -11,7 +11,7 @@ class HighestReview extends StatelessWidget {
         .map((doctor) => DoctorWithLocation(doctor, "Nakuru"))
         .toList();
 
-    final chunkedDoctors = _chunkList(nearbyDoctorsWithLocation, 2);
+    final chunkedDoctors = _chunkList(nearbyDoctorsWithLocation, 1);
 
     return Column(
       children: List.generate(chunkedDoctors.length, (index) {
@@ -46,20 +46,20 @@ class HighestReview extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
-                              image: AssetImage(doctor.DoctorModel.profile),
+                              image: AssetImage(doctor.doctorModel.profile),
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          "Frm. ${doctor.DoctorModel.name}",
+                          "Frm. ${doctor.doctorModel.name}",
                           style: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          "${doctor.location}",
+                          doctor.location,
                           style: const TextStyle(color: Colors.grey),
                         ),
                         const SizedBox(height: 16),
@@ -104,8 +104,8 @@ class HighestReview extends StatelessWidget {
 }
 
 class DoctorWithLocation {
-  final DoctorModel ;
+  final doctorModel ;
   final String location;
 
-  DoctorWithLocation(this.DoctorModel, this.location);
+  DoctorWithLocation(this.doctorModel, this.location);
 }

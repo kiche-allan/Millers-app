@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:ecommerce/models/doctor_model.dart';
-import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
 class MaizePage extends StatelessWidget {
@@ -54,34 +52,34 @@ class MaizePage extends StatelessWidget {
                         ),
                         const SizedBox(height: 7),
                         Row(
-                          children: [
-                            const Icon(
+                          children: const [
+                            Icon(
                               Icons.star,
                               color: Colors.amber,
                               size: 16,
                             ),
-                            const Icon(
+                            Icon(
                               Icons.star,
                               color: Colors.amber,
                               size: 16,
                             ),
-                            const Icon(
+                            Icon(
                               Icons.star,
                               color: Colors.amber,
                               size: 16,
                             ),
-                            const Icon(
+                            Icon(
                               Icons.star_border,
                               color: Colors.amber,
                               size: 16,
                             ),
-                            const Icon(
+                            Icon(
                               Icons.star_border,
                               color: Colors.amber,
                               size: 16,
                             ),
-                            const SizedBox(width: 5),
-                            const Text('4.0 (10)')
+                            SizedBox(width: 5),
+                            Text('4.0 (10)')
                           ],
                         )
                       ],

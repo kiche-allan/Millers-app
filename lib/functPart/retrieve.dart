@@ -1,6 +1,6 @@
+import 'package:ecommerce/functPart/model.dart';
+import 'package:ecommerce/functPart/display.dart';
 import 'package:flutter/material.dart';
-import 'package:user_card/items/functPart/display.dart';
-import 'package:user_card/users/model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FarmerInfoList extends StatelessWidget {

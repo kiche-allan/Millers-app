@@ -8,7 +8,7 @@ class MessagesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Messages"),
+        title: const Text("Messages"),
       ),
       body: ListView.builder(
         itemCount: 10,
@@ -18,15 +18,17 @@ class MessagesPage extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 30.0,
+                  // ignore: todo
+                  //TODO: Add Images to Folder images in assets directory
                   backgroundImage: AssetImage('assets/images/avatar.jpg'),
                 ),
-                SizedBox(width: 16.0),
+                const SizedBox(width: 16.0),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         "John Doe",
                         style: TextStyle(
@@ -53,7 +55,7 @@ class MessagesPage extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Ionicons.chatbubble_ellipses_outline,
                     color: Colors.grey,
                   ),

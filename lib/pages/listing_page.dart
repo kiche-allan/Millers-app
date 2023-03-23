@@ -1,11 +1,14 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ListingPage extends StatefulWidget {
+  const ListingPage({super.key});
+
   @override
-  _ListingPageState createState() => _ListingPageState();
+  ListingPageState createState() => ListingPageState();
 }
 
-class _ListingPageState extends State<ListingPage> {
+class ListingPageState extends State<ListingPage> {
   final _formKey = GlobalKey<FormState>();
   final _quantityController = TextEditingController();
   final _qualityController = TextEditingController();
@@ -25,14 +28,14 @@ class _ListingPageState extends State<ListingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('List Your Cereal'),
+        title: const Text('List Your Cereal'),
         backgroundColor: Colors.white,
         foregroundColor: Colors.blue[900],
         iconTheme: IconThemeData(color: Colors.blue[900]),
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Form(
             key: _formKey,
             child: Column(
@@ -40,7 +43,7 @@ class _ListingPageState extends State<ListingPage> {
               children: <Widget>[
                 TextFormField(
                   controller: _quantityController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Quantity',
                     hintText: 'Enter the quantity of your cereal',
                     border: OutlineInputBorder(),
@@ -52,10 +55,10 @@ class _ListingPageState extends State<ListingPage> {
                     return null;
                   },
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 TextFormField(
                   controller: _qualityController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Quality',
                     hintText: 'Enter the quality of your cereal',
                     border: OutlineInputBorder(),
@@ -67,10 +70,10 @@ class _ListingPageState extends State<ListingPage> {
                     return null;
                   },
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 TextFormField(
                   controller: _priceController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Price',
                     hintText: 'Enter the price of your cereal',
                     border: OutlineInputBorder(),
@@ -82,10 +85,10 @@ class _ListingPageState extends State<ListingPage> {
                     return null;
                   },
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 TextFormField(
                   controller: _locationController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Location',
                     hintText: 'Enter the location of your cereal',
                     border: OutlineInputBorder(),
@@ -97,19 +100,20 @@ class _ListingPageState extends State<ListingPage> {
                     return null;
                   },
                 ),
-                SizedBox(height: 32.0),
+                const SizedBox(height: 32.0),
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       // TODO: Implement logic to submit the cereal listing
-                      print('Cereal listing submitted');
+                      if (kDebugMode) {
+                        print('Cereal listing submitted');
+                      }
                     }
                   },
-                  child: Text('Submit'),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue[900],
-                    onPrimary: Colors.white,
+                    foregroundColor: Colors.white,
                   ),
+                  child: const Text('Submit'),
                 ),
               ],
             ),

@@ -9,7 +9,7 @@ class HeroImage extends StatelessWidget {
       tag: 'agriculture-icon',
       child: Container(
         height: 200,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/agriculture-icon.png'),
             fit: BoxFit.cover,

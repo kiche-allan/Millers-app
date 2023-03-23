@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-    
+  get: ^4.6.5
   cupertino_icons: ^1.0.2
   device_preview: ^1.1.0
   ionicons: ^0.2.1
@@ -22,6 +22,7 @@ dependencies:
   firebase_database: ^10.0.15
   cloud_firestore: ^4.4.4
   url_launcher: ^6.1.10
+  flutter_otp_text_field: ^1.1.1
   
   
 
@@ -38,4 +39,3 @@ flutter:
   assets:
     - assets/
     - assets/maize/
-    

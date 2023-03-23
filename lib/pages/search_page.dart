@@ -5,10 +5,10 @@ class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
 
   @override
-  _SearchPageState createState() => _SearchPageState();
+  SearchPageState createState() => SearchPageState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +51,7 @@ class _SearchPageState extends State<SearchPage> {
               children: [
                 Text(
                   "Recent Searches",
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 TextButton(
                   onPressed: () {},
@@ -67,10 +67,10 @@ class _SearchPageState extends State<SearchPage> {
               itemBuilder: (context, index) {
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: ListTile(
-                    title: const Text("Maize"),
-                    subtitle: const Text("Nairobi, KENYA"),
-                    trailing: const Text("30 bags"),
+                  child: const ListTile(
+                    title: Text("Maize"),
+                    subtitle: Text("Nairobi, KENYA"),
+                    trailing: Text("30 bags"),
                   ),
                 );
               },

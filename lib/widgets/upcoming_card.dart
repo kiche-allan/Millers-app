@@ -6,10 +6,10 @@ class UpcomingCard extends StatefulWidget {
   const UpcomingCard({Key? key}) : super(key: key);
 
   @override
-  _UpcomingCardState createState() => _UpcomingCardState();
+  UpcomingCardState createState() => UpcomingCardState();
 }
 
-class _UpcomingCardState extends State<UpcomingCard>
+class UpcomingCardState extends State<UpcomingCard>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
@@ -40,13 +40,14 @@ class _UpcomingCardState extends State<UpcomingCard>
         child: Container(
           width: double.maxFinite,
           height: 170,
-          padding: const EdgeInsets.symmetric(vertical: 22, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 22, horizontal: 6),
           decoration: BoxDecoration(
             color: Theme.of(context).primaryColor.withOpacity(0.8),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
+            
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
@@ -56,7 +57,9 @@ class _UpcomingCardState extends State<UpcomingCard>
                   fit: BoxFit.cover,
                 ),
               ),
+
               const SizedBox(width: 14),
+
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -72,14 +75,14 @@ class _UpcomingCardState extends State<UpcomingCard>
                   Text(
                     
                     "BUY AND SELL MAIZE",
-                     style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           color: Colors.white70,
                         ),
                   ),
                   Text(
                     
                     "We bring you together for sales",
-                     style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           color: Colors.white70,
                         ),
                   ),
